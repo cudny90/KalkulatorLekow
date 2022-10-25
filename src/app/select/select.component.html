@@ -1,0 +1,36 @@
+<mat-form-field appearance="fill">
+    <mat-label>Stezenie [mg/ml]</mat-label>
+    <mat-select [(ngModel)]="selectedConcentration" name="concentration" (selectionChange)="calculate()">
+      <mat-option *ngFor="let concentration of (concentrations$ | async)" [value]="concentration">
+        {{concentration}}
+      </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Waga dziecka [kg]</mat-label>
+  <input matInput placeholder="Podaj wagę" [(ngModel)]="selectedMass" (change)="calculate()">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Dawka dobowa [mg/kg]</mat-label>
+  <input matInput placeholder="Podaj dawkę" [(ngModel)]="selectedPortion" (change)="calculate()">
+</mat-form-field>
+
+<table>
+  <tr>
+    <td>
+      <mat-label>Ilość dawek na dobę</mat-label>
+    </td>
+    <td>
+      <mat-button-toggle-group name="numberOfPortions" aria-label="Dzienna ilość dawek" [(ngModel)]="numberOfPortions" (change)="setNumberOfPortions($event.value)">
+        <mat-button-toggle value="1">1</mat-button-toggle>
+        <mat-button-toggle value="2">2</mat-button-toggle>
+        <mat-button-toggle value="3">3</mat-button-toggle>
+        <mat-button-toggle value="4">4</mat-button-toggle>
+      </mat-button-toggle-group>
+    </td>
+  </tr>
+</table>
+<p class="result" *ngIf="result">Obliczona dawka:  <strong>{{result | number}} ml</strong>, <strong>{{numberOfPortions}} raz{{numberOfPortions == '1' ? '' : 'y'}}</strong> na dobę.</p>
+

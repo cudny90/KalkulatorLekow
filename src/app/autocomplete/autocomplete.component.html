@@ -1,0 +1,16 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Lek</mat-label>
+    <input type="text"
+           placeholder="Wpisz"
+           aria-label="Name"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectedMedicine($event)">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

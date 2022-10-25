@@ -1,0 +1,25 @@
+mat-form-field {
+    width: 100%
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    text-align: center;
+}
+
+p.result {
+    margin-top: 40px;
+    color: #3C4048;
+}
+
+.mat-button-toggle {
+    color: #3C4048;
+}
+
+.mat-button-toggle-checked {
+    background-color: #00ABB3;
+    color: #fff;
+}

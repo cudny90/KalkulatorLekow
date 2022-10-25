@@ -1,0 +1,13 @@
+body {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 3px solid #00ABB3;
+    padding: 30px;
+    border-radius: 5px;
+  }
